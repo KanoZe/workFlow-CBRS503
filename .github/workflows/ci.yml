@@ -3,7 +3,7 @@ name: Node.js CI
 on:
   pull_request:
     branches:
-      - main  # or the branch you want to trigger the workflow on
+      - main  
 
 jobs:
   build:
