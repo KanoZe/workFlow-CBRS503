@@ -3,53 +3,35 @@ name: Node.js CI
 on:
   pull_request:
     branches:
-<<<<<<< HEAD
-      - main  
-=======
       - main
->>>>>>> 82f52dd (Test change for pull request)
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      # Checkout the repository code
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  
+          node-version: '16'
 
-      # Install dependencies
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
 
-      # Check code format with Prettier
-      - name: Run Prettier
-        run: |
-          npx prettier --check .
+      - name: Check code format with Prettier
+        run: npx prettier --check .
 
-      # Lint with ESLint
-      - name: Run ESLint
-        run: |
-          npx eslint .
+      - name: Lint with ESLint
+        run: npx eslint .
 
-      # Run Jest tests
-      - name: Run Jest tests
-        run: |
-          npm test
+      - name: Run tests with Jest
+        run: npm test
 
-      # Security scan with Snyk
-      - name: Run Snyk security scan
-        run: |
-          snyk test
+      - name: Run security scan with Snyk
+        run: snyk test
 
-      # Check for secrets with Gitleaks
-      - name: Run Gitleaks to check for secrets
-        run: |
-          npm run gitleaks
+      - name: Check for secrets with Gitleaks
+        run: npm run gitleaks
