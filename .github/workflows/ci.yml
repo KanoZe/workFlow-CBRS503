@@ -1,0 +1,51 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches:
+      - main  # or the branch you want to trigger the workflow on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+
+      # Check code format with Prettier
+      - name: Run Prettier
+        run: |
+          npx prettier --check .
+
+      # Lint with ESLint
+      - name: Run ESLint
+        run: |
+          npx eslint .
+
+      # Run Jest tests
+      - name: Run Jest tests
+        run: |
+          npm test
+
+      # Security scan with Snyk
+      - name: Run Snyk security scan
+        run: |
+          snyk test
+
+      # Check for secrets with Gitleaks
+      - name: Run Gitleaks to check for secrets
+        run: |
+          npm run gitleaks
