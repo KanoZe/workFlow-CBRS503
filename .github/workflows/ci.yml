@@ -44,7 +44,7 @@ jobs:
       - name: Run Gitleaks
         uses: zricethezav/gitleaks-action@v1.0.0
         with:
-          config: .gitleaks.toml # Optional: specify a custom config file
+          scan_path: .
           args: --verbose
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
