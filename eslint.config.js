@@ -1,18 +1,12 @@
-export default [
-  {
-    "type": "module"
-  },  
-  {
-    ignores: ['node_modules'],
+module.exports = {
+  env: {
+    node: true,
+    es2021: true,
   },
-  {
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-    },
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'off',
-    },
+  extends: 'eslint:recommended',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-]
+  rules: {},
+};
