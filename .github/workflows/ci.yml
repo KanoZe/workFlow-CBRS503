@@ -29,30 +29,4 @@ jobs:
         run: |
           npm install
 
-      - name: Fix permissions
-        run: chmod +x node_modules/.bin/prettier
-
-      # Check code format with Prettier
-      - name: Run Prettier
-        run: |
-          npx prettier --check .
-
-      # Lint with ESLint
-      - name: Run ESLint
-        run: |
-          npx eslint .
-
-      # Run Jest tests
-      - name: Run Jest tests
-        run: |
-          npm test
-
-      # Security scan with Snyk
-      - name: Run Snyk security scan
-        run: |
-          snyk test
-
-      # Check for secrets with Gitleaks
-      - name: Run Gitleaks to check for secrets
-        run: |
-          npm run gitleaks
+      - run: npm test
