@@ -41,6 +41,10 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # You must add this in GitHub Secrets
 
-      # Check for secrets with Gitleaks
-      - name: Check for secrets with Gitleaks
-        run: npm run gitleaks
+      - name: Run Gitleaks
+        uses: zricethezav/gitleaks-action@v1.0.0
+        with:
+          config: .gitleaks.toml # Optional: specify a custom config file
+          args: --verbose
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
