@@ -6,9 +6,9 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-    },
-    globals: {
-      structuredClone: 'readonly', // Declare structuredClone as a global
+      globals: {
+        structuredClone: 'readonly', // Declare structuredClone as a global here
+      },
     },
     rules: {
       'no-unused-vars': 'warn',
