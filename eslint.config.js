@@ -1,15 +1,4 @@
-export default [
-  {
-    ignores: ['node_modules'],
-  },
-  {
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-    },
-    rules: {
-      'no-unused-vars': 'warn',
-      'no-console': 'off',
-    },
-  },
-]
+import globals from 'globals'
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [{ languageOptions: { globals: globals.browser } }]
