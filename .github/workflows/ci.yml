@@ -45,4 +45,4 @@ jobs:
       - name: Scan repository for secrets with Gitleaks - actions
         uses: zricethezav/gitleaks-action@v1
         with:
-          args: detect --source . --verbose
+          args: detect --source ./ --verbose
