@@ -42,7 +42,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       # Gitleaks - actions
-      - name: Scan repository for secrets
+      - name: Scan repository for secrets with Gitleaks - actions
         uses: zricethezav/gitleaks-action@v1
         with:
           args: detect --source .
