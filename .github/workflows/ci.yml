@@ -44,5 +44,5 @@ jobs:
       - name: Scan repository for secrets
         uses: zricethezav/gitleaks-action@v1
         with:
-          args: detect --source . # This scans your entire repo
+          args: detect --source . --branch main # This scans your entire repo
 
