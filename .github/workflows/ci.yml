@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - main  
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,32 +20,27 @@ jobs:
         with:
           node-version: '16'  
 
-      # Install dependencies
-      - name: Install dependencies
-        run: |
-          npm install
+      - run: npm ci
+      - run: npm test
 
-      # Check code format with Prettier
-      - name: Run Prettier
-        run: |
-          npx prettier --check .
+      # Check code formatting with Prettier
+      - name: Check code format with Prettier
+        run: npx prettier --check .
 
-      # Lint with ESLint
-      - name: Run ESLint
-        run: |
-          npx eslint .
+      # Lint the code with ESLint
+      - name: Lint with ESLint
+        run: npx eslint .
 
-      # Run Jest tests
-      - name: Run Jest tests
-        run: |
-          npm test
+      # Run tests with Jest
+      - name: Run tests with Jest
+        run: npm test
 
       # Security scan with Snyk
-      - name: Run Snyk security scan
-        run: |
-          snyk test
+      - name: Security scan with Snyk
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # You must add this in GitHub Secrets
 
       # Check for secrets with Gitleaks
-      - name: Run Gitleaks to check for secrets
-        run: |
-          npm run gitleaks
+      - name: Check for secrets with Gitleaks
+        run: npm run gitleaks
