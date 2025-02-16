@@ -41,10 +41,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # You must add this in GitHub Secrets
 
-      - name: Run Gitleaks
-        uses: zricethezav/gitleaks-action@v1.0.0
+      - name: Scan repository for secrets
+        uses: zricethezav/gitleaks-action@v1
         with:
-          scan_path: .
-          args: --verbose
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          args: detect --source . # This scans your entire repo
+
