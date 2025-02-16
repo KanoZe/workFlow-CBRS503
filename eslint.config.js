@@ -1,5 +1,8 @@
 export default [
   {
+    "type": "module"
+  },  
+  {
     ignores: ['node_modules'],
   },
   {
