@@ -22,3 +22,25 @@ jobs:
 
       - run: npm ci
       - run: npm test
+
+      # Check code formatting with Prettier
+      - name: Check code format with Prettier
+        run: npx prettier --check .
+
+      # Lint the code with ESLint
+      - name: Lint with ESLint
+        run: npx eslint .
+
+      # Run tests with Jest
+      - name: Run tests with Jest
+        run: npm test
+
+      # Security scan with Snyk
+      - name: Security scan with Snyk
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # You must add this in GitHub Secrets
+
+      # Check for secrets with Gitleaks
+      - name: Check for secrets with Gitleaks
+        run: npm run gitleaks
