@@ -3,12 +3,7 @@ name: Node.js CI
 on:
   pull_request:
     branches:
-<<<<<<< HEAD
       - main  
-=======
-      - main
->>>>>>> 82f52dd (Test change for pull request)
-
 jobs:
   build:
     runs-on: ubuntu-latest
