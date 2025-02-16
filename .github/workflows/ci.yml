@@ -3,12 +3,12 @@ name: Node.js CI
 on:
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       # Checkout the repository code
       - name: Checkout repository
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  
+          node-version: '16'
 
       - run: npm ci
       - run: npm test

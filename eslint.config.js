@@ -1,16 +1,15 @@
 export default [
-    {
-      ignores: ["node_modules"],
+  {
+    ignores: ['node_modules'],
+  },
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
     },
-    {
-      languageOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-      },
-      rules: {
-        "no-unused-vars": "warn",
-        "no-console": "off",
-      },
+    rules: {
+      'no-unused-vars': 'warn',
+      'no-console': 'off',
     },
-  ];
-  
+  },
+]
