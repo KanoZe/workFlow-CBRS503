@@ -1,12 +1,15 @@
-module.exports = {
-  env: {
-    node: true,
-    es2021: true,
+export default [
+  {
+    ignores: ['node_modules'],
   },
-  extends: 'eslint:recommended',
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module',
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+    rules: {
+      'no-unused-vars': 'warn',
+      'no-console': 'off',
+    },
   },
-  rules: {},
-}
+]
